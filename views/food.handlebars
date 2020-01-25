@@ -1,0 +1,37 @@
+<h1>Foods</h1>
+
+<h3>Fruits</h3>
+{{#each food}}
+
+    {{#each this.fruits}}
+    <li>{{this}}</li>
+    {{/each}}
+
+{{/each}}
+
+<h3>Veggies</h3>
+{{#each food}}
+
+    {{#each this.vegetables}}
+    <li>{{this}}</li>
+    {{/each}}
+
+{{/each}}
+
+<h3>Junk Food</h3>
+{{#each food as |food key|}}
+
+    {{#each food.junk as |junk key|}}
+    <li>{{junk}}</li>
+    {{/each}}
+
+{{/each}}
+
+<h3>Beverages</h3>
+{{#each food as |food key|}}
+
+    {{#each food/beverages as |beverages key|}}
+    <li>{{beverages}}</li>
+    {{/each}}
+
+{{/each}}

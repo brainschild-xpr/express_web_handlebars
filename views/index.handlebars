@@ -1,0 +1,16 @@
+<h1>HomePage</h1>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
+    quaerat nesciunt molestiae quisquam dicta numquam, necessitatibus eligendi
+    excepturi.</p>
+{{#if isTrue}}
+<h3>You are Authenticated</h3>
+<p>Proceed:</p>
+<input type="button" value="Next">
+{{else}}
+<h3>Unauthorized Access</h3>
+{{/if}}
+
+{{#unless connectedUser}}
+<h4>To connect user follow link below</h4>
+<a href="http://www.google.com">Google</a>
+{{/unless}}
