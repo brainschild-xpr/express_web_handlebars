@@ -8,16 +8,22 @@
 {{!-- Basic --}}
 {{#with author}}
 
-<h5>Mother to Archer is </h5><h2>{{firstname}} {{lastname}}</h2>
+<h3>Spy Agency Boss :</h3><h2>{{firstname}} {{lastname}}</h2>
 
 {{/with}}
 <hr>
+
 {{!-- as name  |x|--}}
-{{#with author as |name|}}
-
-<h3>Mother to Archer is </h3><h2>{{name.firstname}} {{name.lastname}}</h2>
+{{!-- Nested Access to Object File  --}}
+{{#with author as |attrib|}}
+<h2>SpyAgency Boss: {{attrib.firstname}} {{attrib.lastname}}</h2>
+{{!-- <p>Agents:{{attrib.employees.first}}</p> --}}
+{{#each attrib.employees}}
+    <p>Agent {{.}}</p>
+{{/each}}
 {{/with}}
 <hr>
+
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
     quaerat nesciunt molestiae quisquam dicta numquam, necessitatibus eligendi
     excepturi.</p>

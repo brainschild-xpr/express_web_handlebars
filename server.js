@@ -54,7 +54,12 @@ app.get('/', function (req, res) {
         trioCurly: '<h3>Welcome to Trio Curly</h3>',
         author: {
             firstname: 'Malory',
-            lastname: 'Archer'
+            lastname: 'Archer',
+            employees: {
+                first: 'Sterling Archer',
+                second: 'Lana Kane',
+                third: 'Cyril Figgis'
+            }
         },
     })
 })
