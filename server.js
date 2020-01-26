@@ -9,7 +9,7 @@ const partial_layout = path.join(__dirname, 'views/partials')
 const public = path.join(__dirname, 'public')
 // console.log(public)
 
-// app.use(express.static(public));
+app.use(express.static('public'));
 
 const hbsE = exp_hbs.create({
     extname: 'hbs',
