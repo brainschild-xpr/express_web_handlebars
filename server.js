@@ -1,16 +1,18 @@
 const express = require('express')
 const path = require('path')
-const exp_hbrs = require('express-handlebars')
+const exp_hbs = require('express-handlebars')
 
 const app = express()
 const PORT = 3000
 const main_layout = path.join(__dirname, 'views/main_layout')
 
-app.engine('handlebars', exp_hbrs({
+app.set('view engine', 'hbs')
+app.engine('hbs', exp_hbs({
+    extname: 'hbs',
     defaultLayout: 'main',
     layoutsDir: main_layout
 }))
-app.set('view engine', 'handlebars')
+
 
 app.get('/', function (req, res) {
     // res.status(200).json({ message: 'Welcome to Home' })
@@ -54,7 +56,7 @@ app.get('/food', function (req, res) {
             { fruits: ['passion', 'orange', 'apple'] },
             { vegetables: ['spinach', 'cauliflower', 'kales'] },
             { junk: ['pizza', 'burger', 'sandwitch'] },
-            { beverages: ['coffee','tea','choco'] }
+            { beverages: ['coffee', 'tea', 'choco'] }
         ]
     })
 })
