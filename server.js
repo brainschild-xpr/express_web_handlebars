@@ -5,12 +5,14 @@ const exp_hbs = require('express-handlebars')
 const app = express()
 const PORT = 3000
 const main_layout = path.join(__dirname, 'views/main_layout')
+const partial_layout = path.join(__dirname, 'views/partials')
 
 app.set('view engine', 'hbs')
 app.engine('hbs', exp_hbs({
     extname: 'hbs',
     defaultLayout: 'main',
-    layoutsDir: main_layout
+    layoutsDir: main_layout,
+    partialsDir: partial_layout
 }))
 
 
