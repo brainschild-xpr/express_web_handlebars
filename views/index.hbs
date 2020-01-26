@@ -1,9 +1,21 @@
 <h1>HomePage</h1>
 
 {{>header}}
+<br>
+<hr>
+<h3>Different Modules</h3>
+<hr>
+{{#with author}}
+
+<h5>Mother to Archer is </h5><h2>{{firstname}} {{lastname}}</h2>
+
+{{/with}}
+<hr>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
     quaerat nesciunt molestiae quisquam dicta numquam, necessitatibus eligendi
     excepturi.</p>
+<br>
+<hr>
 {{#if isTrue}}
 <h3>You are Authenticated</h3>
 <p>Proceed:</p>
@@ -11,17 +23,21 @@
 {{else}}
 <h3>Unauthorized Access</h3>
 {{/if}}
-
+<br>
+<hr>
 {{#unless connectedUser}}
 <h4>To connect user follow link below</h4>
 <a href="http://www.google.com">Google</a>
 {{/unless}}
 <br>
-
+<hr>
+<br>
 {{calculation 100}}
 <br>
+<hr>
 
 {{duoCurly}}
 {{{trioCurly}}}
+<hr>
 
 {{>footer}}

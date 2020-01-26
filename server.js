@@ -48,10 +48,14 @@ app.get('/', function (req, res) {
     res.render('index', {
         title: 'HomePage',
         isTrue: true,
-        connectedUser: true,
+        connectedUser: false,
 
         duoCurly: '<h3>Welcome to Duo Curly</h3>',
-        trioCurly: '<h3>Welcome to Trio Curly</h3>'
+        trioCurly: '<h3>Welcome to Trio Curly</h3>',
+        author: {
+            firstname: 'Malory',
+            lastname: 'Archer'
+        },
     })
 })
 
