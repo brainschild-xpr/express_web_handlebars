@@ -1,7 +1,6 @@
-{{>header}}
-<hr>
-<h3>Different Modules</h3>
-<hr>
+{{!-- {{>header}} --}}
+<h1>Home</h1>
+
 {{!-- Basic --}}
 {{!-- Provided you know the object you can access it down the tre through WITH
 --}}
@@ -13,7 +12,7 @@
 
 {{/each}}
 {{/with}}
-<hr>
+
 
 {{!-- as name |x|--}}
 {{!-- Nested Access to Object File --}}
@@ -24,12 +23,12 @@
 <p>Agent {{.}}</p>
 {{/each}}
 {{/with}}
-<hr>
+
 
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
     quaerat nesciunt molestiae quisquam dicta numquam, necessitatibus eligendi
     excepturi.</p>
-<hr>
+
 {{#if isTrue}}
 <h3>You are Authenticated</h3>
 <p>Proceed:</p>
@@ -37,17 +36,18 @@
 {{else}}
 <h3>Unauthorized Access</h3>
 {{/if}}
-<hr>
+
 {{#unless connectedUser}}
 <h4>To connect user follow link below</h4>
 <a href="http://www.google.com">Google</a>
 {{/unless}}
-<hr>
+
 {{calculation 100}}
-<hr>
+
 
 {{duoCurly}}
 {{{trioCurly}}}
-<hr>
 
-{{>footer}}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{{!-- {{>footer}} --}}
