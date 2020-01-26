@@ -1,30 +1,27 @@
-<h1>HomePage</h1>
-
-
 {{>header}}
-<br>
 <hr>
 <h3>Different Modules</h3>
 <hr>
 {{!-- Basic --}}
-{{!-- Provided you know the object you can access it down the tre through WITH --}}
+{{!-- Provided you know the object you can access it down the tre through WITH
+--}}
 {{#with author}}
 
 <h3>Spy Agency Boss :</h3><h2>{{firstname}} {{lastname}}</h2>
 {{#each employees}}
 {{.}}
-    
+
 {{/each}}
 {{/with}}
 <hr>
 
-{{!-- as name  |x|--}}
-{{!-- Nested Access to Object File  --}}
+{{!-- as name |x|--}}
+{{!-- Nested Access to Object File --}}
 {{#with author as |attrib|}}
 <h2>SpyAgency Boss: {{attrib.firstname}} {{attrib.lastname}}</h2>
 {{!-- <p>Agents:{{attrib.employees.first}}</p> --}}
 {{#each attrib.employees}}
-    <p>Agent {{.}}</p>
+<p>Agent {{.}}</p>
 {{/each}}
 {{/with}}
 <hr>
@@ -32,7 +29,6 @@
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
     quaerat nesciunt molestiae quisquam dicta numquam, necessitatibus eligendi
     excepturi.</p>
-<br>
 <hr>
 {{#if isTrue}}
 <h3>You are Authenticated</h3>
@@ -41,17 +37,13 @@
 {{else}}
 <h3>Unauthorized Access</h3>
 {{/if}}
-<br>
 <hr>
 {{#unless connectedUser}}
 <h4>To connect user follow link below</h4>
 <a href="http://www.google.com">Google</a>
 {{/unless}}
-<br>
 <hr>
-<br>
 {{calculation 100}}
-<br>
 <hr>
 
 {{duoCurly}}

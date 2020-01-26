@@ -49,8 +49,8 @@ app.get('/', function(req, res) {
     res.render('index', {
         style: 'index.css',
         title: 'HomePage',
-        isTrue: true,
-        connectedUser: false,
+        isTrue: false,
+        connectedUser: true,
 
         duoCurly: '<h3>Welcome to Duo Curly</h3>',
         trioCurly: '<h3>Welcome to Trio Curly</h3>',

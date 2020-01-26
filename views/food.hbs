@@ -1,11 +1,10 @@
-<h1>Foods</h1>
 {{>header}}
 
 <h3>Fruits</h3>
 {{#each food}}
 
     {{#each this.fruits}}
-    <p>{{this}}</p>
+    <li>{{this}}</li>
     {{/each}}
 
 {{/each}}
@@ -14,7 +13,7 @@
 {{#each food}}
 
     {{#each this.vegetables}}
-    <p>{{this}}</p>
+    <li>{{this}}</li>
     {{/each}}
 
 {{/each}}
@@ -23,7 +22,7 @@
 {{#each food as |food key|}}
 
     {{#each food.junk as |junk key|}}
-    <p>{{junk}}</p>
+    <li>{{junk}}</li>
     {{/each}}
 
 {{/each}}
@@ -32,7 +31,7 @@
 {{#each food as |food key|}}
 
     {{#each food/beverages as |beverages key|}}
-    <p>{{beverages}}</p>
+    <li>{{beverages}}</li>
     {{/each}}
 
 {{/each}}

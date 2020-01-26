@@ -1,28 +1,30 @@
-nav {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav.header {
     background: rgb(248, 248, 248);
     /* display: block; */
 }
 
-ul {
+ul.header {
     list-style-type: none;
     overflow: hidden;
     background-color: #333;
     margin: 0;
     padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
-li {
+li.header {
     /* display: inline; */
     float: right;
 }
 
-/* a {
-    display: block;
-    padding: 8px;
-    background-color: #dddddd;
-  } */
-
-li a {
+li.header a.header {
     display: block;
     color: #dddddd;
     padding: 8px;
@@ -32,6 +34,6 @@ li a {
     background-color: #045eac;
 }
 
-li a:hover {
+li.header a.header:hover {
     background-color: #111;
 }
