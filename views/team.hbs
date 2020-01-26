@@ -4,17 +4,17 @@
 
 {{!-- Iterating through a list using value and key params --}}
 {{#each programmers as |value key|}}
-<ul>{{key}}:{{value}}</ul>
+<p>{{key}}:{{value}}</p>
 {{/each}}
 
 {{!-- Iterating through a list using a '.' --}}
 {{#each programmers}}
-<li>{{.}}</li>
+<p>{{.}}</p>
 {{/each}}
 
 {{!-- Iterating through a list using a '.' and @key params --}}
 {{#each accountant}}
-<ul>{{@key}} : {{.}}</ul>
+<p>{{@key}} : {{.}}</p>
 {{/each}}
 
 {{!-- working with custom helpers --}}
