@@ -5,10 +5,16 @@
 <hr>
 <h3>Different Modules</h3>
 <hr>
+{{!-- Basic --}}
 {{#with author}}
 
 <h5>Mother to Archer is </h5><h2>{{firstname}} {{lastname}}</h2>
 
+{{/with}}
+{{!-- as name  --}}
+{{#with author as name}}
+
+<h5>Mother to Archer is </h5><h2>{{name.firstname}} {{name.lastname}}</h2>
 {{/with}}
 <hr>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non cum sapiente
