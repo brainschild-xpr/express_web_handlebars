@@ -6,10 +6,14 @@
 <h3>Different Modules</h3>
 <hr>
 {{!-- Basic --}}
+{{!-- Provided you know the object you can access it down the tre through WITH --}}
 {{#with author}}
 
 <h3>Spy Agency Boss :</h3><h2>{{firstname}} {{lastname}}</h2>
-
+{{#each employees}}
+{{.}}
+    
+{{/each}}
 {{/with}}
 <hr>
 
