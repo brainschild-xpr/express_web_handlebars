@@ -6,14 +6,41 @@ const app = express()
 const PORT = 3000
 const main_layout = path.join(__dirname, 'views/main_layout')
 const partial_layout = path.join(__dirname, 'views/partials')
+const public = path.join(__dirname, 'public')
+// console.log(public)
 
-app.set('view engine', 'hbs')
-app.engine('hbs', exp_hbs({
+// app.use(express.static(public));
+
+const hbsE = exp_hbs.create({
     extname: 'hbs',
     defaultLayout: 'main',
     layoutsDir: main_layout,
-    partialsDir: partial_layout
-}))
+    partialsDir: partial_layout,
+    // create customer helper
+    helpers: {
+        calculation: function (value) {
+            return value + 50
+        }, list: function (value, options) {
+            console.log("Passing Values", value);
+            return '<h3>' + options.fn({ test: value, another: 'thing' }) + '</h3>'
+
+        },
+        people: function (value, options) {
+            //value = people
+            let out = "<ul>"
+            for (let i = 0; i < value.length; i++) {
+                out = out + '<li>' + options.fn(value[i]) + '</li>'
+            }
+            return out + '</ul>'
+
+
+        }
+    }
+})
+
+app.engine('hbs', hbsE.engine)
+app.set('view engine', 'hbs')
+
 
 
 app.get('/', function (req, res) {
@@ -48,6 +75,11 @@ app.get('/team', function (req, res) {
             office_number: 'b40',
             phone: '0785746334'
         },
+        people: [
+            { firstname: 'Janice', secondname: 'Kemunto' },
+            { firstname: 'James', secondname: 'Kaimoe' },
+            { firstname: 'Archie', secondname: 'Malowa' },
+        ]
 
     })
 })

@@ -1,28 +1,36 @@
 <h1>Programmers</h1>
+{{!-- Calling Partial HBS --}}
 {{>header}}
 
+{{!-- Iterating through a list using value and key params --}}
 {{#each programmers as |value key|}}
-
-
 <ul>{{key}}:{{value}}</ul>
-
 {{/each}}
 
+{{!-- Iterating through a list using a '.' --}}
 {{#each programmers}}
-
-
 <li>{{.}}</li>
-
 {{/each}}
 
-{{#each programmers}}
-
-
-<li>{{.}}</li>
-
-{{/each}}
-
+{{!-- Iterating through a list using a '.' and @key params --}}
 {{#each accountant}}
-<ul>{{@key}}  :  {{.}}</ul>
+<ul>{{@key}} : {{.}}</ul>
 {{/each}}
+
+{{!-- working with custom helpers --}}
+{{calculation 69}}
+
+{{!-- working with custom helpers with options params--}}
+{{#list programmers}}
+{{test}}
+<br>
+{{another}}
+{{/list}}
+
+{{!-- working with custom helpers with options params--}}
+{{#people people}}
+{{firstname}} {{secondname}}
+{{/people}}
+
+{{!-- Calling Partial HBS --}}
 {{>footer}}
