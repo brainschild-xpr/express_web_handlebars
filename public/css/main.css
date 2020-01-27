@@ -6,6 +6,7 @@
     position: relative;
 }
 
+/*
 #topheader .navbar-nav li>a {
     text-transform: capitalize;
     color: rgb(155, 128, 128);
@@ -20,4 +21,4 @@
 #topheader .navbar-nav li.active>a {
     background-color: #333;
     color: #fff;
-}
+} */
