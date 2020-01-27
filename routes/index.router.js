@@ -73,4 +73,16 @@ router.get('/admin', function (req, res) {
     })
 })
 
-  module.exports = router
+router.get('/docs', function (req, res) {
+    res.render('docs', {
+        style: 'docs.css'
+    })
+})
+
+router.get('/dash', function (req, res) {
+    res.render('dash', {
+        style: 'dash.css'
+    })
+})
+
+module.exports = router
