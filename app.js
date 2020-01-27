@@ -8,7 +8,7 @@ const main_layout = path.join(__dirname, 'views/main_layout')
 const partial_layout = path.join(__dirname, 'views/partials')
 const public = path.join(__dirname, 'public')
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index.router');
 
 app.use(express.static(public));
 

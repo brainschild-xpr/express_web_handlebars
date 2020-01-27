@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//     res.render('index', { title: 'Express' });
-//   });
-
 router.get('/', function (req, res) {
     res.render('index', {
         style: 'index.css',
@@ -28,7 +23,6 @@ router.get('/', function (req, res) {
 })
 
 router.get('/about', function (req, res) {
-    // res.status(200).json({ message: 'Welcome to Home' })
     res.render('about', {
         style: 'about.css',
         title: 'AboutPage',
