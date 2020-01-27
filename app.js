@@ -1,14 +1,16 @@
-const express = require('express')
+require('dotenv').config()
 const path = require('path')
+const express = require('express')
+const mongoose = require('mongoose')
 const exp_hbs = require('express-handlebars')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORTADDR
 const main_layout = path.join(__dirname, 'views/main_layout')
 const partial_layout = path.join(__dirname, 'views/partials')
 const public = path.join(__dirname, 'public')
 
-var indexRouter = require('./routes/index.router');
+
 
 app.use(express.static(public));
 
@@ -40,8 +42,33 @@ const handle = exp_hbs.create({
 app.engine('hbs', handle.engine)
 app.set('view engine', 'hbs')
 
+var indexRouter = require('./routes/index.router');
 app.use('/', indexRouter)
 
+var onepieceRouter = require('./routes/onepiece.router');
+app.use('/onepiece', onepieceRouter)
+
+
+const mongoUri = process.env.DB_Uri
+const dbPhotos = process.env.DB_photos
+
+const db_photos_url = mongoUri + dbPhotos
+const db = mongoose.connection
+
+db.on('error', (err) => {
+    console.error('Error Occured:', err);
+})
+
+mongoose.connect(db_photos_url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, function (err) {
+    if (err) {
+        console.error('Connection Error:', err);
+    } else {
+        console.log('Database Connected Succesfully. Database Name:', dbPhotos);
+    }
+})
 
 app.listen(PORT, function () {
     console.log('Server listening at port:', PORT)
