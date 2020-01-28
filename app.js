@@ -1,18 +1,31 @@
 require('dotenv').config()
+const cors = require('cors')
 const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const exp_hbs = require('express-handlebars')
 
 const app = express()
-const PORT = process.env.PORTADDR
+const PORT = process.env.PORTADDR || 3000
 const main_layout = path.join(__dirname, 'views/main_layout')
 const partial_layout = path.join(__dirname, 'views/partials')
 const public = path.join(__dirname, 'public')
 
-
-
-app.use(express.static(public));
+app.use(bodyParser.json());
+app.use(express.static(public))
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cors());
+app.use(cookieParser());
+app.use(session({
+    secret: 'positronx',
+    saveUninitialized: false,
+    resave: false
+}));
 
 const handle = exp_hbs.create({
     extname: 'hbs',
@@ -25,7 +38,7 @@ const handle = exp_hbs.create({
             return value + 50
         },
         list: function (value, options) {
-            console.log("Passing Values", value);
+            console.log("Passing Values", value)
             return '<h3>' + options.fn({ test: value, another: 'thing' }) + '</h3>'
         },
         people: function (value, options) {
@@ -42,11 +55,14 @@ const handle = exp_hbs.create({
 app.engine('hbs', handle.engine)
 app.set('view engine', 'hbs')
 
-var indexRouter = require('./routes/index.router');
+var indexRouter = require('./routes/index.router')
 app.use('/', indexRouter)
 
-var onepieceRouter = require('./routes/onepiece.router');
+var onepieceRouter = require('./routes/onepiece.router')
 app.use('/onepiece', onepieceRouter)
+
+var adminRouter = require('./routes/admin.router')
+app.use('/admin', adminRouter)
 
 
 const mongoUri = process.env.DB_Uri
@@ -56,7 +72,7 @@ const db_photos_url = mongoUri + dbPhotos
 const db = mongoose.connection
 
 db.on('error', (err) => {
-    console.error('Error Occured:', err);
+    console.error('Error Occured:', err)
 })
 
 mongoose.connect(db_photos_url, {
@@ -64,9 +80,9 @@ mongoose.connect(db_photos_url, {
     useUnifiedTopology: true
 }, function (err) {
     if (err) {
-        console.error('Connection Error:', err);
+        console.error('Connection Error:', err)
     } else {
-        console.log('Database Connected Succesfully. Database Name:', dbPhotos);
+        console.log('Database Connected Succesfully. Database Name:', dbPhotos)
     }
 })
 

@@ -67,12 +67,6 @@ router.get('/food', function (req, res) {
     })
 })
 
-router.get('/admin', function (req, res) {
-    res.render('admin', {
-        style: 'admin.css'
-    })
-})
-
 router.get('/docs', function (req, res) {
     res.render('docs', {
         style: 'docs.css'
