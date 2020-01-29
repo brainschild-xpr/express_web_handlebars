@@ -55,20 +55,22 @@ const handle = exp_hbs.create({
 app.engine('hbs', handle.engine)
 app.set('view engine', 'hbs')
 
-var indexRouter = require('./routes/index.router')
+var indexRouter = require('./routers/index.router')
 app.use('/', indexRouter)
 
-var onepieceRouter = require('./routes/onepiece.router')
+var onepieceRouter = require('./routers/onepiece.router')
 app.use('/onepiece', onepieceRouter)
 
-var adminRouter = require('./routes/admin.router')
+var adminRouter = require('./routers/admin.router')
 app.use('/admin', adminRouter)
 
 
 const mongoUri = process.env.DB_Uri
 const dbPhotos = process.env.DB_photos
+const dbUsers = process.env.DB_users
 
 const db_photos_url = mongoUri + dbPhotos
+const db_users_url = mongoUri + dbUsers
 const db = mongoose.connection
 
 db.on('error', (err) => {
@@ -83,6 +85,17 @@ mongoose.connect(db_photos_url, {
         console.error('Connection Error:', err)
     } else {
         console.log('Database Connected Succesfully. Database Name:', dbPhotos)
+    }
+})
+
+mongoose.connect(db_users_url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, function (err) {
+    if (err) {
+        console.error('Connection Error:', err)
+    } else {
+        console.log('Database Connected Succesfully. Database Name:', dbUsers)
     }
 })
 

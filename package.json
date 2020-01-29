@@ -11,6 +11,7 @@
   "author": "BCXPR",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
@@ -19,7 +20,9 @@
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "express-validator": "^6.3.1",
-    "mongoose": "^5.8.10"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.10",
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
