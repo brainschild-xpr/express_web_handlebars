@@ -255,6 +255,18 @@ router.get('/generate', function (req, res) {
     });
     req.session.errors = null;
 });
+let isPost = false
+router.get('/create_post', function (req, res) {
+    isPost = true
+    res.render('admin_home', {
+        adminheader: 'Admin Create Post',
+        isPost: isPost,
+        success: req.session.success,
+        errors: req.session.errors
+
+    });
+    req.session.errors = null;
+});
 
 
 
@@ -297,6 +309,28 @@ router.post('/register_user', valid.registerCheck, (req, res) => {
         console.log(errors.array());
 
         res.render('admin_register', {
+            errors: errors.array()
+        })
+    } else {
+        // res.sendStatus(200)
+        res.render('admin_home', {
+            adminheader: "Admin Home",
+            user: req.body.username
+        })
+    }
+
+})
+
+router.post('/create_post', valid.registerCheck, (req, res) => {
+    // console.log(req.body)
+    var errors = validationResult(req).formatWith(valid.errorFormatter)
+    // var errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+        // res.status(400).json(errors.array())
+        console.log(errors.array());
+
+        res.render('admin_home', {
             errors: errors.array()
         })
     } else {
