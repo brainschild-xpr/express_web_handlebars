@@ -1,7 +1,24 @@
 {{>admin_header}}
 <h2>{{adminheader}}</h2>
-{{#each user}}
+<h3>Hello {{user}}</h3>
+<button><a href="http://localhost:3000/admin/home">Get ALL Records</a></button>
 <hr>
-{{this}}
+
+{{#each users}}
+{{#with this as |params|}}
+<div class="container col-lg-6 col-md-12 col-sm-3">
+    <div class="card" style="width: 50rem;">
+        <div class="card-header bg-warning">
+            User Record
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> UserID : {{params.userId}}</li>
+            <li class="list-group-item"> Email : {{params.email}}</li>
+            <li class="list-group-item"> Password : {{params.password}}</li>
+            <li class="list-group-item">Date : {{params.date}}</li>
+        </ul>
+    </div>
+</div>
 <hr>
+{{/with}}
 {{/each}}

@@ -1,0 +1,39 @@
+<html lang="en">
+    <head>
+        <title>Add Network</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>{{adminheader}}</h1>
+        {{# if errors }}
+        {{# each errors }}
+        <p class="alert alert-danger">{{ this.msg }}</p>
+        {{/each}}
+        {{/if}}
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Add Network
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="/admin/post">
+                        <div class="form-group">
+                            <label class="col-md-4">Network Name</label>
+                            <input type="text" class="form-control" name="name"
+                                />
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4">Network Bandwidth</label>
+                            <input type="text" class="form-control"
+                                name="bandwidth" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add
+                                Network</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html

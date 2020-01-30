@@ -1,2 +1,7 @@
 <h1>Error 404</h1>
 <h3>{{message}}</h3>
+{{# if errors }}
+{{# each errors }}
+<p class="alert alert-danger">{{ this.message }}</p>
+{{/each}}
+{{/if}}
