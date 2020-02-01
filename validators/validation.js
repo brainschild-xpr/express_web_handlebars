@@ -4,32 +4,24 @@ module.exports = {
     loginCheck: [
         [
             check('username')
-                .isLength({ min: 1 }).withMessage('Required Username')
-                .isAlphanumeric().withMessage('Login must be alphanumeric'),
+                .isLength({ min: 1 }).withMessage('Required Username'),
             check('password')
                 .isLength({ min: 8 }).withMessage('Password must be at least 8 characters in length.')
                 .matches('[0-9]').withMessage('Password must contain at least 1 number.')
                 .matches('[a-z]').withMessage('Password must contain at least 1 lowercase letter.')
-                .matches('[A-Z]').withMessage('Password must contain at least 1 uppercase letter.')
-                .custom((value, { req, loc, path }) => {
-                    if (value !== req.body.confirm_password) {
-                        console.log("\nPasswords Don't Match:", value);
-                        return false
-                    } else {
-                        console.log('\nPasswords Match:', value);
-                        // return value
-                        return true
-                    }
-                }).withMessage("Password Don't Match"),
+                .matches('[A-Z]').withMessage('Password must contain at least 1 uppercase letter.'),
         ]
     ],
     registerCheck: [
         [
             check('email')
-            .isEmail(),
+                .isEmail(),
+            check('firstname')
+                .isLength({ min: 1 }).withMessage('Enter Firstname'),
+            check('lastname')
+                .isLength({ min: 1 }).withMessage('Enter Lastname'),
             check('username')
                 .isLength({ min: 1 }).withMessage('Required Username'),
-                // .isAlphanumeric().withMessage('Login must be alphanumeric'),
             check('password')
                 .isLength({ min: 8 }).withMessage('Password must be at least 8 characters in length.')
                 .matches('[0-9]').withMessage('Password must contain at least 1 number.')

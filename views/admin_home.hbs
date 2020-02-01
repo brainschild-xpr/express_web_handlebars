@@ -1,20 +1,24 @@
 {{>admin_header}}
 <h2>{{adminheader}}</h2>
 <h3>Hello {{user}}</h3>
-<button><a href="http://localhost:3000/admin/home">Get ALL Records</a></button>
-<button><a href="http://localhost:3000/admin/create_post">POST</a></button>
+<a class="btn btn-success" href="http://localhost:3000/admin/home"
+    role="button">Get Records</a>
 <hr>
 
 {{#each users}}
 {{#with this as |params|}}
-<div class="container col-lg-8 col-md-10 col-sm-12 col-12">
+
+<div class="container col-lg-11 col-md-10 col-sm-11 col-12">
     <div class="card">
-        <div class="card-header bg-warning">
+        <div class="card-header bg-success">
             User Record
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"> UserID : {{params.userId}}</li>
+            <li class="list-group-item"> Username : {{params.username}}</li>
             <li class="list-group-item"> Email : {{params.email}}</li>
+            <li class="list-group-item"> FirstName : {{params.firstname}}</li>
+            <li class="list-group-item"> LastName : {{params.lastname}}</li>
             <li class="list-group-item"> Password : {{params.password}}</li>
             <li class="list-group-item">Date : {{params.date}}</li>
         </ul>

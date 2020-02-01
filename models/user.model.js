@@ -2,6 +2,37 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 
 const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        validate(value) {
+            if (validator.isEmpty(value)) {
+                throw new Error('Enter Username')
+            }
+        }
+    },
+    firstname: {
+        type: String,
+        required: true,
+        trim: true,
+        validate(value) {
+            if (validator.isEmpty(value)) {
+                throw new Error('Enter FirstName')
+            }
+        }
+    },
+    lastname: {
+        type: String,
+        required: true,
+        trim: true,
+        validate(value) {
+            if (validator.isEmpty(value)) {
+                throw new Error('Enter LastName')
+            }
+        }
+    },
     email: {
         type: String,
         required: true,
